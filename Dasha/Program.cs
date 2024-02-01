@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Добавьте службы в контейнер.
 var connectionStringIdentity = builder.Configuration.GetConnectionString("DefaultConnection") ?? 
     throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
 var connectionString = builder.Configuration.GetConnectionString("SqlConnection") ??
     throw new InvalidOperationException("Connection string 'SqlConnection' not found.");
 

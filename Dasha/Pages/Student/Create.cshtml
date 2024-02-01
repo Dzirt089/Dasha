@@ -1,0 +1,82 @@
+﻿@page
+@model Dasha.Pages.Student.CreateModel
+
+<form method="post">
+   <div class="border p-3 mt-4">
+       <div class="row pb-2">
+           <h2 class="text-primary pl-3">Create Student</h2>
+           <hr />
+       </div>
+       <div class="mb-3">
+           <label asp-for="Students.Name"></label>
+           <input asp-for="Students.Name" class="form-control"/>
+       </div>
+        <div class="mb-3">
+            <label asp-for="Students.Surname"></label>
+            <input asp-for="Students.Surname" class="form-control" />
+        </div>        
+        <div class="mb-3">
+            <label asp-for="Students.Password"></label>
+            <input asp-for="Students.Password" class="form-control" />
+        </div>    
+        <button type="submit" class="btn btn-primary" style="width:150px;">
+            Create
+        </button>
+   </div>
+</form>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+@* Этот код представляет собой форму в ASP.NET Core с использованием TagHelper. 
+    TagHelper - это инструмент, предоставляемый ASP.NET Core для упрощения работы с HTML и обеспечения интеграции серверного и клиентского кода. 
+    Давайте рассмотрим каждую часть кода подробнее:
+
+<form> элемент:
+<form method="post">
+Этот тег <form> представляет форму, которая использует метод HTTP POST при отправке данных. 
+Это обычно используется для отправки данных формы на сервер для обработки.
+
+<div> элемент с классом "border p-3 mt-4":
+<div class="border p-3 mt-4">
+Этот <div> элемент представляет контейнер для всей формы. 
+Классы "border", "p-3" и "mt-4" используются для добавления стилей к контейнеру (границы, внутренний отступ и внешний отступ сверху соответственно).
+
+<div> элемент с классом "row pb-2":
+<div class="row pb-2">
+Этот <div> элемент представляет строку с отступом снизу ("pb-2").
+Класс "row" может использоваться сеткой Bootstrap для создания строки с колонками.
+
+<h2> элемент и <hr /> элемент:
+<h2 class="text-primary pl-3">Create Category</h2>
+<hr />
+Здесь <h2> представляет заголовок "Create Category" с классом "text-primary" для добавления цвета текста. 
+<hr /> представляет горизонтальную линию, которая разделяет заголовок от остальных элементов.
+
+<div> элемент с классом "mb-3":
+<div class="mb-3">
+Этот <div> элемент представляет общий контейнер для каждого входного поля и его метки. 
+Класс "mb-3" используется для добавления отступа снизу.
+
+Метка и входное поле для "Category.Name":
+<label asp-for="Category.Name"></label>
+<input asp-for="Category.Name" class="form-control"/>
+Здесь используется TagHelper для привязки метки (<label>) и входного поля (<input>) к свойству "Name" модели "Category". 
+asp-for генерирует соответствующие атрибуты, связанные с моделью.
+
+Метка и входное поле для "Category.DisplayOrder":
+<label asp-for="Category.DisplayOrder"></label>
+<input asp-for="Category.DisplayOrder" class="form-control"/>
+Аналогично, здесь создаются метка и входное поле для свойства "DisplayOrder" модели "Category".
+
+Кнопка отправки формы:
+<button type="submit" class="btn btn-primary" style="width:150px;">Create</button>
+Этот элемент <button> представляет кнопку отправки формы с текстом "Create". 
+Классы "btn" и "btn-primary" предоставляют стили Bootstrap для кнопок, а стиль "width:150px;" устанавливает фиксированную ширину в 150 пикселей.
+
+Таким образом, TagHelper используется для упрощения работы с моделью данных и генерации HTML-кода, связанного с этой моделью. 
+В данном случае, они обеспечивают связь между представлением и моделью "Category" для формы создания категории.*@

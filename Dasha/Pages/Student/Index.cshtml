@@ -1,0 +1,62 @@
+﻿@* @page - Этот атрибут указывает, что данная страница является страницей Razor *@
+@page 
+@* @model Dasha.Pages.Student.IndexModel - Данный атрибут указывает модель, которая связана с этой страницей.
+В данном случае, страница связана с моделью IndexModel, которая предоставляет данные, необходимые для отображения этой страницы.*@
+@model Dasha.Pages.Student.IndexModel
+
+<div class="container p-3">                 @* p-3 Это внутренний отступ, как padding. Цифра - это размер отступа. *@
+    <div class="row pt-4">                  @* Где pt-4 Это расшифровывается как Padding-top и размер -4 *@
+        <div class="col-6">                 @* Где col Это колонка, а -6 указываем ширину этой колонке *@
+            <h2 class="text-primary">       @* text-primary - Это основной текст по умолчанию *@
+                List of my students
+            </h2>
+        </div>
+        <div class="col-6 text-end">        @* text-end - Это выравнивание текста по правому краю *@
+            <a asp-page="Create" class="btn btn-primary">
+                Create New Student
+            </a>
+        </div>
+    </div>
+
+    @* Разбираем: <table - Объявляем тэг таблицы. Далее, для модификаций, добавляем класс table и перечисляем необходимые модификаторы:
+    class="table -- (Главный класс)
+    table-bordered -- (Класс для границ таблицы)
+    table-hover -- (класс для наведения на строки)
+    table-striped -- (Класс ля полосатости строк в таблице)
+    " style="width:100%" Стиль - ширина 100% - я> *@
+    <table class="table table-bordered table-hover table-striped" style="width:100%">      
+        <thead> @* Объявляем родителя с заголовками *@           
+            <tr>
+                @* Элемент <tr> (от англ. "table row" ‒ «строка таблицы») служит контейнером для создания строки таблицы.
+                Он может содержать один или несколько тегов <th> или <td>. *@
+               
+                @* Тег <th> (от англ. table heading — заголовок таблицы) предназначен для создания одной ячейки таблицы,
+                    которая обозначается как заголовочная. 
+                    Текст в такой ячейке отображается браузером обычно жирным шрифтом и выравнивается по центру. 
+                    Элемент <th> должен размещаться внутри контейнера <tr>, который в свою очередь располагается внутри <table>. *@
+                <th>Name</th>
+                <th>Surname</th>
+                <th>TelegramName</th>
+                <th>Password</th>
+                <th>TelegramID</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach(var obj in Model.Students)
+            {
+                <tr>
+                    @* Тег <td> используется для создания ячеек таблицы, он всегда вкладывается в элемент <tr>.
+                    Ячейка может содержать текст, изображения, формы, список и другие HTML-элементы. *@
+                    <td width="25%" text>@obj.Name</td>
+                    <td width="25%" text>@obj.Surname</td>
+                    <td width="15%" text>@obj.TelegramName</td>
+                    <td width="15%" text>@obj.Password</td>
+                    <td width="10%">@obj.TelegramID</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+   
+    
+</div>

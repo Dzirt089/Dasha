@@ -8,6 +8,7 @@ namespace Dasha.Data
         public ApplicationIdentityDbContext(DbContextOptions<ApplicationIdentityDbContext> options)
             : base(options)
         {
+            Database.EnsureCreated();
         }
     }
 }

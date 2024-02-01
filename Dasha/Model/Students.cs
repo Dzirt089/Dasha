@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace Dasha.Model
 {
@@ -7,6 +8,7 @@ namespace Dasha.Model
         /// <summary>
         /// Индентификатор
         /// </summary>
+        [Key]
         public int Id { get; set; }
 
         /// <summary>
@@ -20,19 +22,18 @@ namespace Dasha.Model
         public string Surname { get; set; }
 
         /// <summary>
-        /// Ник клиента в телеграм 
+        /// Ник клиента в телеграм
         /// </summary>
-        public string TelegramName { get; set; }
+        public string TelegramName { get; set; } = string.Empty;
 
         /// <summary>
         /// Пароль для клиента, уникальный ключ.
         /// </summary>
-        [Key]
         public string Password { get; set; }
 
         /// <summary>
         /// Чат id клиента в телеграм
         /// </summary>
-        public long TelegramID { get; set; }
+        public long TelegramID { get; set; } = 0;
     }
 }
